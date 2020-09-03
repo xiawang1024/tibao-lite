@@ -103,7 +103,12 @@ Page({
         success: (res) => {
           wx.showToast({
             title: '提交成功',
-          })
+            success() {
+              wx.navigateTo({
+                url: '/pages/adminList/index',
+              })
+            }
+          })          
         },
       })
     })
