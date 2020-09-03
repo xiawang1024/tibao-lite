@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isAdmin:false
+    isAdmin:false,
+    num:''
   },
 
   /**
@@ -17,7 +18,8 @@ Page({
     httpAdmin().then(res => {
       if(res.admin) {
         this.setData({
-          isAdmin:true
+          isAdmin:true,
+          num:res.num
         })
       }
     })

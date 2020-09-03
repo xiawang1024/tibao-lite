@@ -15,14 +15,14 @@
 				<image src="../../icons/tiyi.png" class="icon"></image>
 				<text class="name">我的提议</text>
 			</view>
-			<view class="num">3</view>
+			<!-- <view class="num">3</view> -->
 		</view>
 		<view class="item" bindtap="goIssuList" wx:if="{{isAdmin}}">
 			<view class="text-wrap">
 				<image src="../../icons/tiyi.png" class="icon"></image>
 				<text class="name">市民提议</text>
 			</view>
-			<view class="num">3</view>
+			<view class="num" wx:if="{{num>0}}">{{num}}</view>
 		</view>
 	</view>
 
