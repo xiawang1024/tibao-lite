@@ -46,8 +46,8 @@
 }
 
 .back-btn{
-  width: 80% !important;
-  margin: 40rpx auto;
+  width: 50% !important;
+  margin: 10rpx auto;
   font-weight: 500;
   color: #ffffff;
   background-color: #4f94d0 !important;

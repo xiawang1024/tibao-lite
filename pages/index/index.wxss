@@ -16,9 +16,9 @@
   width: 600rpx;
 }
 .login-wrap .title{
-  margin: 0 0 20rpx 20rpx;
-  font-size: 36rpx;
+  font-size: 52rpx;
   color: #ffffff;
+  margin-bottom: 20rpx;
 }
 .form{
   display: flex;

@@ -2,5 +2,5 @@
   "usingComponents": {
     "custom-nav":"../../components/nav/index"
   },
-  "navigationBarTitleText":"我的提议"
+  "navigationBarTitleText":"市民提议"
 }

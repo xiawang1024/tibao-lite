@@ -17,7 +17,7 @@
 				<view class="label">状态：</view>
 				<view class="value">
 					<text wx:if="{{item.status == 3}}">已完成</text>
-					<text wx:elif="{{item.status == 2}}">进行中</text>
+					<text wx:elif="{{item.status == 2}}">处理中</text>
 					<text wx:else>其它</text>
 				</view>
 			</view>
