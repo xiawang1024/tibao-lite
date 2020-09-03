@@ -1,0 +1,53 @@
+<!--pages/detail/index.wxml-->
+<view class="container">
+  <view class="table userinfo">
+    <view class="title">个人信息</view>
+    <view class="item">
+      <view class="label">姓名：</view>
+      <view class="value">{{issueData.name}}</view>
+    </view>
+    <view class="item">
+      <view class="label">联系方式：</view>
+      <view class="value">{{issueData.phone}}</view>
+    </view>
+    <view class="item">
+      <view class="label">居住地址：</view>
+      <view class="value">{{issueData.address}}</view>
+    </view>
+  </view>
+  <view class="table eventinfo">
+    <view class="title">反映信息</view>
+    <view class="item">
+      <view class="label">所在辖区：</view>
+      <view class="value">{{issueData.modulename}}</view>
+    </view>
+     <view class="item" wx:if="{{issueData.Username}}">
+      <view class="label">人大代表：</view>
+      <view class="value">{{issueData.Username}}</view>
+    </view>
+    <view class="item">
+      <view class="label">事项分类：</view>
+      <view class="value">{{issueData.catname}}</view>
+    </view>
+   
+    <view class="item">
+      <view class="label">反映事项：</view>
+      <view class="value">{{issueData.content}}</view>
+    </view>
+  </view>
+
+  <view class="status">
+   <radio-group bindchange="radioChange">
+        <label  wx:for="{{items}}" wx:key="{{item.value}}">
+          <view class="weui-cell__hd">
+            <radio value="{{item.value}}" />
+          </view>
+          <view class="weui-cell__bd">{{item.name}}</view>
+        </label>
+      </radio-group>
+  </view>
+  
+  <button class="back-btn" bindtap="submitHandler">提交</button>
+  <button class="back-btn" bindtap="backList">返回</button>
+
+</view>

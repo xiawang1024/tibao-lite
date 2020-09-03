@@ -1,0 +1,82 @@
+<!--pages/form/index.wxml-->
+<view class="container">
+	<view class="form-wrap">
+		<view class="label">个人信息</view>
+		<view class="userinfo-form">
+			<view class="userinfo-item">
+				<view class="icon">*</view>
+				<view class="text">姓名：</view>
+				<input class="input" value="{{name}}" placeholder="请输入您的姓名" placeholder-style="text-align:right" bindinput="nameIptHandler"/>
+			</view>
+			<view class="userinfo-item">
+				<view class="icon">*</view>
+				<view class="text">身份证号：</view>
+				<input class="input" type="idcard" value="{{idcard}}" placeholder="请输入您的身份证号" placeholder-style="text-align:right" bindinput="idcardIptHandler"/>
+			</view>
+			<view class="userinfo-item">
+				<view class="icon">*</view>
+				<view class="text">居住地址：</view>
+				<input class="input" value="{{address}}" placeholder="示例：文化路8号院2栋" placeholder-style="text-align:right" bindinput="addressIptHandler"/>
+			</view>
+			<view class="userinfo-item tel">
+				<view class="icon">*</view>
+				<view class="text">联系方式：</view>
+				<view class="input" bindtap="editPhone">
+					<input  value="{{phone}}" disabled="true" placeholder="请输入您的手机号" placeholder-style="text-align:right" bindinput="phoneIptHandler"/>
+					<image class="edit-icon" src="../../icons/edit.png"></image>
+				</view>
+
+			</view>
+		</view>
+		<view class="form-wrap suggestion">
+			<view class="label">反映信息</view>
+			<view class="suggestion-form">
+				<view class="suggestion-item">
+					<view class="icon">*</view>
+					<view class="text">所在辖区：</view>
+					<picker bindchange="areaPickChange" value="{{areaIdx}}" range="{{areaArr}}" range-key="name" class="input">
+						<view wx:if="{{areaIdx===-1}}" class="pick-placeholder">
+							请选择
+						</view>
+						<view wx:else>
+							{{areaArr[areaIdx].name}}
+						</view>
+					</picker>
+				</view>
+				<view class="suggestion-item">
+					<view class="icon hidden">*</view>
+					<view class="text">人大代表（选填）：</view>
+					<picker bindchange="userPickChange" disabled="{{areaIdx===-1}}" value="{{userIdx}}" range="{{userArr}}" range-key="name" class="input">
+						<view wx:if="{{userIdx===-1}}" class="pick-placeholder" bindtap="isSelectHandler">
+							请选择
+						</view>
+						<view wx:else>
+							{{userArr[userIdx].name}}
+						</view>
+					</picker>
+				</view>
+				<view class="suggestion-item">
+					<view class="icon">*</view>
+					<view class="text">事项分类：</view>
+					<picker bindchange="eventPickChange" disabled="{{areaIdx===-1}}"  value="{{eventIdx}}" range="{{eventArr}}" range-key="catname" class="input">
+						<view wx:if="{{eventIdx===-1}}" class="pick-placeholder" bindtap="isSelectHandler">
+							请选择
+						</view>
+						<view wx:else>
+							{{eventArr[eventIdx].catname}}
+						</view>
+					</picker>
+				</view>
+				<view class="suggestion-item no-flex">
+					<view class="single-line">
+						<view class="icon">*</view>
+						<view class="text">反映事项：</view>
+					</view>
+					<textarea placeholder="为了利于你所提议的问题或建议得到及时有效处理，请写清时间、地点及发生的事件或者提议" focus="{{focus}}" value="{{content}}" class="textarea" show-confirm-bar="false" bindinput="contentIptHandler"/>
+					</view>
+			</view>
+		</view>
+	</view>
+	<button class="btn-submit" bindtap="submitHandler">提交</button>
+	<custom-nav></custom-nav>
+</view>

@@ -1,0 +1,23 @@
+<!--pages/editTel/index.wxml-->
+<view class="container">
+  <view class="origin">
+    <view class="label">原手机号：</view>
+    <view class="value">{{originMobile}}</view>
+  </view>
+  <view class="new">
+    <view class="label">新手机号：</view>
+    <view class="value">
+      <input value="{{newMobile}}" class="phone" placeholder="请输入新手机号" bindinput="phoneIptHandler"></input>
+      <button disabled="{{isSend}}" class="time" size="mini" bindtap="codeSendHandler"> {{timeAgo?timeAgo:'发送验证码'}}</button>
+    </view>
+  </view>
+  <view class="code">
+    <view class="label">验证码：</view>
+    <input class="value" placeholder="请输入验证码"></input>
+  </view>
+
+  <view class="btn-group">
+    <button class="btn yes" bindtap="yesHandler">确定</button>
+    <button class="btn" bindtap="backHandler">取消</button>
+  </view>
+</view>

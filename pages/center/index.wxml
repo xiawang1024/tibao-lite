@@ -1,0 +1,32 @@
+<!--pages/center/index.wxml-->
+<view class="container">
+	<view class="userinfo">
+		<view class="avatar">
+			<open-data type='userAvatarUrl'></open-data>
+		</view>
+		<view class="nickname">
+			<open-data type="userNickName"></open-data>
+		</view>
+	</view>
+
+	<view class="list-wrap">
+		<view class="item" bindtap="goList">
+			<view class="text-wrap">
+				<image src="../../icons/tiyi.png" class="icon"></image>
+				<text class="name">我的提议</text>
+			</view>
+			<view class="num">3</view>
+		</view>
+		<view class="item" bindtap="goIssuList" wx:if="{{isAdmin}}">
+			<view class="text-wrap">
+				<image src="../../icons/tiyi.png" class="icon"></image>
+				<text class="name">市民提议</text>
+			</view>
+			<view class="num">3</view>
+		</view>
+	</view>
+
+	<button class="logout-btn" bindtap="goOutHandler">退出登录</button>
+	<custom-nav></custom-nav>
+
+</view>

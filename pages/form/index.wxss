@@ -1,0 +1,90 @@
+/* pages/form/index.wxss */
+.container{
+  width: 100%;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  padding-bottom: 200rpx;
+}
+.form-wrap{
+  width: 100%;
+}
+.form-wrap.suggestion{
+  margin-top: 40rpx;
+}
+.userinfo-form,.suggestion-form{
+  width: 100%;
+  padding: 10rpx 0;
+  
+}
+.label{
+  margin:16rpx 10rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.userinfo-item ,.suggestion-item{
+  width: 100%;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #ededed;
+  box-sizing: border-box;
+}
+
+.userinfo-item .icon,.suggestion-item .icon{
+  color: red;
+}
+
+.userinfo-item .text,.suggestion-item .text{
+  color: #666666;
+}
+
+.userinfo-item .input,.suggestion-item .input{
+  flex: 1;
+  text-align: right;
+}
+
+.suggestion-item .icon.hidden{
+  color: transparent;
+}
+
+.suggestion-item.no-flex{
+  display: block;
+  border: none;
+}
+.suggestion-item .single-line{
+  display: flex;
+}
+.suggestion-item.no-flex .textarea{
+  width: 100%;
+  margin-top: 8rpx;
+  border:1rpx #eeeeee solid;
+  border-radius:8rpx;
+  padding: 8rpx 16rpx;
+  box-sizing: border-box;
+}
+.pick-placeholder{
+  color: #888888;
+}
+
+.btn-submit{
+  margin-top: 60rpx;
+  width: 80% !important;
+  color: #ffffff !important;
+  background-color: #4f94d0 !important;
+}
+.btn-submit.button-hover{
+  background-color: #4b81af !important;
+}
+.edit-icon{
+  margin-left: 12rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.tel .input{
+  flex:1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+

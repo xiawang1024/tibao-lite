@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="top-bg">
+    
+  </view>
+  <view class="login-wrap">
+    <view class="title">登录</view>
+    <view class="form">
+      <view class="avatar-wrap">
+        <open-data type="userAvatarUrl" ></open-data>
+      </view>
+      <view class="tips">使用微信授权登录</view>
+      <button type="primary"  size="mini" hover-class='btn-hover' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">登录</button>
+    </view>
+  </view>
+  
+</view>

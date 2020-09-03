@@ -1,0 +1,58 @@
+/* pages/myList/index.wxss */
+.container{
+  padding-bottom: 120rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  padding:12rpx 30rpx;
+  margin: 20rpx 0;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  border-top-right-radius: 80rpx;
+  border: 1rpx solid #efefef;
+}
+.item .label{
+  flex:0 0 155rpx;
+  font-weight: bold;
+}
+
+.item .value{
+  flex:1;
+}
+
+.item .content .value {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.item .type,.item .name,.item .status, .item .content{
+  width: 500rpx;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  padding: 8rpx 0;
+}
+.item .type .value text:last-child{
+  position: absolute;
+  right: 80rpx;
+  font-size: 28rpx;
+  color: #666666;
+}
+.item .right{
+  flex: 0 0 100rpx;
+}
+.item .right .btn {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #4f94d0;
+}
+.item .right .btn.button-hover{
+  background-color: #4b81af ;
+}

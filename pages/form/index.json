@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "custom-nav":"../../components/nav/index"
+  },
+  "navigationBarTitleText":"提议",
+  "backgroundColor":"#eeeeee"
+}

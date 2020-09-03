@@ -1,0 +1,31 @@
+<!--pages/myList/index.wxml-->
+<view class="container">
+	<view class="item" wx:for="{{listData}}" wx:key="itemid" wx:for-item="item">
+		<view class="left">
+			<view class="type">
+				<view class="label">事项类型：</view>
+				<view class="value">{{item.catname}}</view>
+			</view>
+			<view class="name">
+				<view class="label">市民姓名：</view>
+				<view class="value">{{item.name}}</view>
+			</view>
+			<view class="status">
+				<view class="label">状态：</view>
+				<view class="value">
+				<text wx:if="{{item.status == 3}}">已完成</text>
+					<text wx:elif="{{item.status == 2}}">进行中</text>
+					<text wx:else>其它</text>
+				</view>
+			</view>
+			<view class="content">
+				<view class="label">内容：</view>
+				<view class="value">{{item.introduce}}</view>
+			</view>
+		</view>
+		<view class="right">
+			<button size="mini" class="btn" data-mid="{{item.mid}}" data-itemid="{{item.itemid}}" bindtap="goDetail">管理</button>
+		</view>
+	</view>
+	<custom-nav></custom-nav>
+</view>

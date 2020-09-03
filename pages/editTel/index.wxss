@@ -1,0 +1,55 @@
+/* pages/editTel/index.wxss */
+.container{
+  width: 100%;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.origin,.new,.code {
+  display: flex;
+  width: 100%;
+  padding: 30rpx 0;
+  border-bottom: 1px solid #efefef;
+  box-sizing: border-box;
+}
+
+.label{
+  flex:0 0 160rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.new .value{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.new .value .time {
+  font-size: 28rpx;
+  font-weight: 500;
+  flex:0 0 200rpx;
+  color: #ffffff;
+  background-color: #4f94d0;
+}
+.new .value .time.button-hover{
+  background-color: #4b81af ;
+}
+.btn-group{
+  width: 80%;
+  margin-top: 120rpx;
+}
+.btn-group .btn{
+  width: 100%;
+  margin-bottom: 40rpx;
+  font-weight: 500;
+}
+
+.btn-group .btn.yes{
+  color: #ffffff;
+  background-color: #4f94d0;
+}
+.btn-group .btn.yes.button-hover{
+  background-color: #4b81af ;
+}

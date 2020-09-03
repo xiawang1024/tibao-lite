@@ -1,0 +1,14 @@
+<!--components/nav/index.wxml-->
+<view class="custom-nav">
+	<view class="nav-wrap">
+		<button class="btn {{tabIdx==='0'?'active':''}}" bindtap="routerHandler" data-type="0">
+			<image class="icon" src="../../icons/msg-active.png" wx:if="{{tabIdx === '0'}}"></image>
+			<image class="icon" src="../../icons/msg.png" wx:else></image>
+			提议
+		</button>
+		<button class="btn {{tabIdx==='1'?'active':''}}" bindtap="routerHandler" data-type="1">
+			<image class="icon" src="../../icons/my-active.png" wx:if="{{tabIdx === '1'}}"></image>
+			<image class="icon" src="../../icons/my.png" wx:else></image>
+			我的
+		</button></view>
+</view>

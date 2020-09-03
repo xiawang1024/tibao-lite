@@ -1,0 +1,73 @@
+/* pages/center/index.wxss */
+.container{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.userinfo{
+  display: flex;
+  width: 100%;
+  padding: 60rpx 30rpx;  
+  box-sizing: border-box;
+}
+
+.userinfo .avatar{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.userinfo .nickname {
+  padding-top: 30rpx;
+  margin-left: 30rpx;
+}
+
+.list-wrap{
+  width: 100%;
+}
+
+.list-wrap .item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #eeeeee;
+  box-sizing: border-box;
+}
+.list-wrap .item:active{
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.list-wrap .text-wrap{
+  display: flex;
+  align-items: center;
+}
+.list-wrap .icon {
+  width: 50rpx;
+  height: 50rpx;
+}
+.list-wrap .name{
+  margin-left: 16rpx;
+}
+.list-wrap .num{
+  display: none;
+  margin-right: 30rpx;
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 50%;
+  color: #ffffff;
+  background-color: #F76260;
+}
+.logout-btn{
+  margin-top: 200rpx;
+  width: 80% !important;
+  color: #ffffff !important;
+  background-color: #4f94d0 !important;
+}
+.logout-btn.button-hover{
+  background-color: #4b81af !important;
+}

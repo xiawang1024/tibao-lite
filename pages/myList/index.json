@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "custom-nav":"../../components/nav/index"
+  },
+  "navigationBarTitleText":"我的提议"
+}
