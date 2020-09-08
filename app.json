@@ -1,5 +1,6 @@
 {
   "pages": [
+    "views/index/index",
     "pages/index/index",
     "pages/center/index",
     "pages/adminDetail/index",
@@ -8,7 +9,10 @@
     "pages/form/index",
     "pages/editTel/index",
     "pages/detail/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "views/signIn/index",
+    "views/report/index",
+    "views/my/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -17,5 +21,40 @@
     "navigationBarTextStyle": "black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor":"#d93636",
+    "list": [
+      {
+        "pagePath": "views/index/index",
+        "text": "首页",
+        "iconPath": "/tabIcon/home.png",
+        "selectedIconPath": "/tabIcon/home-yes.png"
+      },
+      {
+        "pagePath": "views/signIn/index",
+        "text": "签到",
+        "iconPath": "/tabIcon/signIn.png",
+        "selectedIconPath": "/tabIcon/signIn-yes.png"
+      },
+      {
+        "pagePath": "views/report/index",
+        "text": "互动",
+        "iconPath": "/tabIcon/report.png",
+        "selectedIconPath": "/tabIcon/report-yes.png"
+      },
+      {
+        "pagePath": "pages/center/index",
+        "text": "我的",
+        "iconPath": "/tabIcon/my.png",
+        "selectedIconPath": "/tabIcon/my-yes.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于签到功能" 
+    }
+  }
 }
