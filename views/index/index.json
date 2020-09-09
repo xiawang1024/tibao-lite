@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "mp-tabs":"@miniprogram-component-plus/tabs"
+    "mp-tabs":"@miniprogram-component-plus/tabs",
+    "list-item":"../../components/listItem/index"
   },
   "navigationBarTitleText":"首页"
 }

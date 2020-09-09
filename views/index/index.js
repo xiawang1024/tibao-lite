@@ -10,6 +10,22 @@ Page({
     activeTab_1: 0,
     activeTab_2: 1,
     activeTab_3: 0,
+    listData:[
+      {
+        id:0,
+        src:'https://cmsres.dianzhenkeji.com/anonymous/2020/9/9/1303590789493952512.jpg',
+        title:'001新基建助力电竞行业格局巨变新基建助力电竞行业格局巨变新基建助力电竞行业格局巨变',
+        from:'央广网',
+        time:'2020-08-02'
+      },
+      {
+        id:1,
+        src:'https://cmsres.dianzhenkeji.com/anonymous/2020/9/9/1303590789493952512.jpg',
+        title:'002新基建助力电竞行业格局巨变新基建助力电竞行业格局巨变新基建助力电竞行业格局巨变',
+        from:'央广网',
+        time:'2020-08-02'
+      }
+    ]
   },
 
   /**

@@ -1,0 +1,14 @@
+<!--components/listItem/index.wxml-->
+<view class="list-item">
+	<view class="img-wrap">
+		<image class="img" mode="aspectFill" src="{{itemData.src}}"></image>
+	</view>
+
+	<view class="text-wrap">
+		<view class="title">{{itemData.title}}</view>
+		<view class="from-time">
+			<text class="from">{{itemData.from}}</text>
+			<text class="time">{{itemData.time}}</text>
+		</view>
+	</view>
+</view>

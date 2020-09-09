@@ -22,5 +22,10 @@
 		</mp-tabs>
 	</view>
 
-
+	<view class="content-wrap">
+		<block wx:for="{{listData}}" wx:key="id" wx:for-item="item">
+			<list-item  item-data="{{item}}"></list-item>
+		</block>
+		
+	</view>
 </view>
