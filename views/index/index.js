@@ -159,5 +159,12 @@ Page({
         listData: originListData.concat(res.data.list)
       })
     })
+  },
+
+  goToDetail(e){
+    wx.navigateTo({
+      url: '/views/detail/index',
+    })
+
   }
 })

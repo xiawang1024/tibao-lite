@@ -1,0 +1,4 @@
+<!--views/detail/index.wxml-->
+<view class="page-detail">
+  <wxParse nodes="{{htmlString}}" />
+</view>

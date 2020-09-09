@@ -1,6 +1,7 @@
 {
   "pages": [
     "views/index/index",
+    "views/detail/index",
     "pages/index/index",
     "pages/center/index",
     "pages/adminDetail/index",
@@ -24,7 +25,7 @@
   "sitemapLocation": "sitemap.json",
   "tabBar": {
     "color": "#333333",
-    "selectedColor":"#d93636",
+    "selectedColor": "#d93636",
     "list": [
       {
         "pagePath": "views/index/index",
@@ -54,7 +55,7 @@
   },
   "permission": {
     "scope.userLocation": {
-      "desc": "你的位置信息将用于签到功能" 
+      "desc": "你的位置信息将用于签到功能"
     }
   }
 }
