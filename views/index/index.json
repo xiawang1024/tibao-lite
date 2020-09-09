@@ -3,5 +3,8 @@
     "mp-tabs":"@miniprogram-component-plus/tabs",
     "list-item":"../../components/listItem/index"
   },
-  "navigationBarTitleText":"首页"
+  "navigationBarTitleText":"首页",
+  "enablePullDownRefresh":true,
+  "backgroundColor":"#fff",
+ "backgroundTextStyle":"dark"
 }
