@@ -5,7 +5,7 @@
         <block wx:for="{{tabs}}" wx:key="title">
           <view id="item_{{index}}" class="weui-tabs-bar__item" style="background-color: {{tabBackgroundColor}}; color: {{activeTab === index ? tabActiveTextColor : tabInactiveTextColor}};" bindtap="handleTabClick" data-index="{{index}}">
             <view class="weui-tabs-bar__title {{tabClass}} {{activeTab === index ? activeClass : ''}}" style="border-bottom-color: {{activeTab === index ? tabUnderlineColor : 'transparent'}}">
-              <text class="">{{item.title}}</text>
+              <text class="">{{item.catname}}</text>
             </view>
           </view>
         </block>

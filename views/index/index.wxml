@@ -10,17 +10,17 @@
 		<view class="btn" bindtap="schHandler">搜索</view>
 	</view>
 	<view class="first">
-		<mp-tabs tabs="{{tabs}}" activeTab="{{activeTab_1}}" tabClass="first-nav" bindtabclick="onTabClick_1" activeClass="tab-bar-title__selected">
+		<mp-tabs tabs="{{tabs_1}}" activeTab="{{activeTab_1}}" tabClass="first-nav" bindtabclick="onTabClick_1" activeClass="tab-bar-title__selected">
 		</mp-tabs>
 	</view>
 	<view class="line"></view>
-	<view class="second">
-		<mp-tabs tabs="{{tabs}}" activeTab="{{activeTab_2}}" tabClass="second-nav" bindtabclick="onTabClick_2" activeClass="tab-bar-title__selected">
+	<view class="second"  wx:if="{{tabs_2.length>0}}">
+		<mp-tabs tabs="{{tabs_2}}" activeTab="{{activeTab_2}}" tabClass="second-nav" bindtabclick="onTabClick_2" activeClass="tab-bar-title__selected">
 		</mp-tabs>
 	</view>
 
-	<view class="three">
-		<mp-tabs tabs="{{tabs}}" activeTab="{{activeTab_3}}" tabClass="three-nav" bindtabclick="onTabClick_3" activeClass="tab-bar-title__selected">
+	<view class="three"  wx:if="{{tabs_3.length>0}}">
+		<mp-tabs tabs="{{tabs_3}}" activeTab="{{activeTab_3}}" tabClass="three-nav" bindtabclick="onTabClick_3" activeClass="tab-bar-title__selected">
 		</mp-tabs>
 	</view>
 
