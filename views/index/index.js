@@ -12,6 +12,7 @@ Page({
    */
   data: {
     schKey: '',
+    pageNo:2,
     tabs_1:[],
     tabs_2:[],
     tabs_3:[],
@@ -62,14 +63,24 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh () {
-    this.getNewsData(0)
+    let pageNo = this.data.pageNo
+    this.setData({
+      pageNo:1
+    },() => {
+      this.getNewsData(0)
+    })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-    this.getNewsData()
+    let pageNo = this.data.pageNo
+    this.setData({
+      pageNo:pageNo++
+    },() => {
+      this.getNewsData()
+    })
   },
 
   /**
@@ -92,14 +103,22 @@ Page({
   },
   onTabClick_1(e) {
     let idx = e.detail.index
-    let tabs_1 = this.data.tabs_1
+    let {tabs_1,activeTab_2} = this.data
     let tabs_2 = []
+    let tabs_3 = []
     if(tabs_1[idx].subcate && tabs_1[idx].subcate.length>0){
       tabs_2 = tabs_1[idx].subcate
+
+      if(tabs_2[activeTab_2].subcate && tabs_2[activeTab_2].subcate.length > 0) {
+        tabs_3 = tabs_2[activeTab_2].subcate
+      }
     }
+
+    
     this.setData({
       activeTab_1: idx,
-      tabs_2
+      tabs_2,
+      tabs_3
     },() => {
       this.getNewsData()
     })
@@ -165,7 +184,7 @@ Page({
 
   getNewsData(type=1) {
     //type 0:下拉   1：上拉
-    let {tabs_1,tabs_2,tabs_3,activeTab_1,activeTab_2,activeTab_3} = this.data
+    let {tabs_1,tabs_2,tabs_3,activeTab_1,activeTab_2,activeTab_3,pageNo} = this.data
     let catid = ''
     console.log(tabs_3.length,activeTab_3)
     if(tabs_3.length>0){
@@ -187,7 +206,7 @@ Page({
     if(type === 0) {
       originListData = []
     }
-    httpNewsList().then(res => {
+    httpNewsList(catid,pageNo).then(res => {
       wx.hideLoading()
       wx.hideNavigationBarLoading({
         success: (res) => {},
