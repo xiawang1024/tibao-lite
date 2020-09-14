@@ -33,11 +33,11 @@ Page({
     //     console.log(res)
     //   }
     // })
-    wx.startLocationUpdate({
-      success: (res) => {
-        console.log(res)
-      },
-    })
+    // wx.startLocationUpdate({
+    //   success: (res) => {
+    //     console.log(res)
+    //   },
+    // })
 
     wx.onLocationChange((result) => {
       console.log(result)

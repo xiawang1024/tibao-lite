@@ -1,1 +1,38 @@
 /* views/signIn/index.wxss */
+
+.list-wrap{
+  width: 100%;
+  padding:0 20rpx 40rpx ;
+  box-sizing: border-box;
+}
+
+.list-wrap .item { 
+  padding:20rpx 0;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #efefef;
+}
+
+.list-wrap .item .item-l{
+  padding:12rpx;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  align-items: center;
+  font-size: 31rpx;
+}
+
+.list-wrap .item .item-l .label {
+  flex:0 0 250rpx;
+  text-align: justify; 
+  text-align-last: justify; 
+  text-justify: inter-ideograph;
+  font-weight: bold;
+}
+
+.list-wrap .item .item-l .val{
+  flex:0 0 460rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "views/signIn/index",
     "views/index/index",
     "views/detail/index",
     "pages/index/index",
@@ -11,7 +12,6 @@
     "pages/editTel/index",
     "pages/detail/index",
     "pages/logs/logs",
-    "views/signIn/index",
     "views/report/index",
     "views/my/index",
     "views/sch/index"
