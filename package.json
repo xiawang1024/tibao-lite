@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@miniprogram-component-plus/tabs": "^1.0.0",
+    "@miniprogram-component-plus/tabs": "^1.0.0",    
     "wx-minicomponent": "^1.0.11"
   }
 }

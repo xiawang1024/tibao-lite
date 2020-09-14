@@ -1,18 +1,18 @@
 <!--views/signIn/index.wxml-->
 <view class="page">
   <view class="list-wrap">
-    <view class="item" wx:for="{{[1,2,3,4,5]}}">
+    <view class="item" wx:for="{{listData}}" wx:key="itemid" data-info="{{item}}" bindtap="goToDetail">
       <view class="name item-l">
         <view class="label">当前活动/会议：</view>
-        <view class="val">海淀区十三届人大代表会议海淀区十三届人大代表会议</view>
+        <view class="val">{{item.title}}</view>
       </view>
       <view class="time item-l">
         <view class="label">签到时间：</view>
-        <view class="val">2020-06-10 09:00</view>
+        <view class="val">{{item.starttime}}</view>
       </view>
       <view class="address item-l">
         <view class="label">会议/活动地点：</view>
-        <view class="val">金水路32号</view>
+        <view class="val">{{item.address}}</view>
       </view>
     </view>
   </view>
