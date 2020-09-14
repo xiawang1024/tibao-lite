@@ -5,7 +5,7 @@ import {
   httpLogin,
   httpGetPhone
 } from '../../api/login'
-import {httpPublic} from '../../api/form'
+// import {httpPublic} from '../../api/form'
 Page({
   data: {
     motto: 'Hello World',
@@ -32,27 +32,27 @@ Page({
     if(!token) {
       return false
     }
-    httpPublic().then(res => {      
-      wx.setStorage({
-        data: res,
-        key: 'areaArr',
-      })   
-      wx.showLoading({
-        title: '自动登录中...',
-        icon:'loading',
-        success() {
-          wx.navigateTo({
-            url: '/pages/form/index',
-          }) 
-        }
-      }) 
+    // httpPublic().then(res => {      
+    //   wx.setStorage({
+    //     data: res,
+    //     key: 'areaArr',
+    //   })   
+    //   wx.showLoading({
+    //     title: '自动登录中...',
+    //     icon:'loading',
+    //     success() {
+    //       wx.navigateTo({
+    //         url: '/pages/form/index',
+    //       }) 
+    //     }
+    //   }) 
       
-    }).catch(() => {
-      wx.showModal({
-        title:'提示',
-        content:'登录已过期，请重新登录'
-      })
-    })    
+    // }).catch(() => {
+    //   wx.showModal({
+    //     title:'提示',
+    //     content:'登录已过期，请重新登录'
+    //   })
+    // })    
   },
 
   // 登录 get token

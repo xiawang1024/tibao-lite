@@ -1,4 +1,5 @@
 // views/my/index.js
+
 Page({
 
   /**
