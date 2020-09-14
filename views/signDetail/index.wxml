@@ -33,9 +33,12 @@
 		</view>
 
 		<view class="btn-wrap">
-			<view class="btn">
+			<view class="btn" wx:if="{{!isEnd}}">
 				<view class="text">签到</view>
-				<view class="time">{{timeAgo}}</view>
+				<view class="time" wx:if="{{!isStart}}">{{timeAgo}}</view>
+			</view>
+			<view class="btn" wx:else>
+				<view class="text">会议已结束</view>				
 			</view>
 		</view>
 	</view>

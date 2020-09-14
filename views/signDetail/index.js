@@ -10,16 +10,24 @@ Page({
   data: {
     info:{},
     currentTime:"",
-    timeAgo:"00:00:00"
+    timeAgo:"",
+    isStart:false,
+    isEnd:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad (options) {
     const eventChannel = this.getOpenerEventChannel()
     if(Object.keys(eventChannel).length) {
-      eventChannel.on("signInInfo",(data) => {      
+      eventChannel.on("signInInfo",(data) => {    
+        this.endHandler(data.endtime).then(() => {
+          console.log('会议结束')
+        })     
+        this.timer = setInterval(() => {      
+          this.timeInit()
+        },1000)   
         this.setData({
           info:data
         })
@@ -27,16 +35,29 @@ Page({
     }    
   },
 
+  endHandler(endTime) {
+    let diff = dayjs(dayjs()).diff(dayjs(endTime))/1000 | 0
+    return new Promise((resolve,reject) => {
+      if(diff >0) {
+        // 已经结束
+        this.setData({
+          isEnd:true
+        })
+        reject()
+      }else {
+        // 未结束才倒计时
+        resolve()
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.getDataList()
     
-    this.timer = setInterval(() => {
-      
-      this.timeInit()
-    },1000)
+    
+    
   },
 
   /**
@@ -81,26 +102,24 @@ Page({
 
   },
 
-  getDataList() {
-    httpSignInList().then(res => {
-      let {code,data} = res
-      if(code === 0) {
-        this.setData({
-          listData:data.Meet
-        })
-      }
-    })
-  },
+
   timeInit() {
-    let time = '2020-09-14 19:00:00'
+    let time = this.data.info.starttime
+    // let time = "2020-09-14 18:00:00"
     let currentTime = dayjs().format('YYYY-MM-DD HH:mm:ss') 
     let diff = dayjs(time).diff(dayjs())/1000 | 0
+    let isStart = false
+    if(diff < 0) {
+      isStart = true
+    }
     this.setData({
+      isStart,
       currentTime,
       timeAgo:this.formatSecond(diff)
     })
 
   },
+  
   formatSecond(time) {
     const h = Math.floor((time/3600) % 24)
     const m = Math.floor((time/60) % 60)

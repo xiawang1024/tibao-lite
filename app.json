@@ -1,8 +1,8 @@
 {
   "pages": [
+    "views/signIn/index",
     "views/signDetail/index",
     "pages/index/index",
-    "views/signIn/index",
     "views/index/index",
     "views/detail/index",
     "pages/center/index",
