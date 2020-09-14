@@ -12,7 +12,7 @@ Page({
    */
   data: {
     schKey: '',
-    pageNo:2,
+    pageNo:0,
     tabs_1:[],
     tabs_2:[],
     tabs_3:[],
@@ -65,7 +65,7 @@ Page({
   onPullDownRefresh () {
     let pageNo = this.data.pageNo
     this.setData({
-      pageNo:1
+      pageNo:0
     },() => {
       this.getNewsData(0)
     })
@@ -118,7 +118,8 @@ Page({
     this.setData({
       activeTab_1: idx,
       tabs_2,
-      tabs_3
+      tabs_3,
+      listData:[]
     },() => {
       this.getNewsData()
     })
@@ -132,7 +133,8 @@ Page({
     }
     this.setData({
       activeTab_2: idx,
-      tabs_3
+      tabs_3,
+      listData:[]
     },() => {
       this.getNewsData()
     })    
@@ -140,7 +142,8 @@ Page({
   onTabClick_3(e) {
     let idx = e.detail.index
     this.setData({
-      activeTab_3: idx
+      activeTab_3: idx,
+      listData:[]
     },() => {
       this.getNewsData()
     })
@@ -217,7 +220,7 @@ Page({
         })
       }
       this.setData({
-        listData: originListData.concat(res.data.list)
+        listData: originListData.concat(res.data.List)
       })
     })
   },
