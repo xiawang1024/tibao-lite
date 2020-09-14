@@ -1,0 +1,34 @@
+/* views/sch/index.wxss */
+.search{
+  margin-bottom: 24rpx;
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.search .ipt-wrap{
+  flex:0 0 550rpx;
+  display: flex;
+  align-items: center;  
+  border:1rpx solid #cccccc;
+  border-radius: 12rpx;
+}
+.search .ipt-wrap .icon-small{
+  padding:0 6rpx;
+}
+.search .ipt-wrap .ipt{
+  width: 100%;
+  height: 60rpx;
+  font-size: 30rpx;
+}
+.search .btn{
+  flex: 0 0 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color: #ffffff;
+  font-size: 28rpx;
+  border-radius: 12rpx;
+  background: #d93636;  
+}

@@ -13,7 +13,8 @@
     "pages/logs/logs",
     "views/signIn/index",
     "views/report/index",
-    "views/my/index"
+    "views/my/index",
+    "views/sch/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

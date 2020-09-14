@@ -1,0 +1,18 @@
+/* components/banner/index.wxss */
+
+
+.swiper-item{
+  height: 100%;
+}
+.demo1{
+  background-color: orange;
+}
+.demo2{
+  background-color: rebeccapurple;
+}
+.demo3{
+  background-color: green;
+}
+.demo4{
+  background-color: greenyellow;
+}

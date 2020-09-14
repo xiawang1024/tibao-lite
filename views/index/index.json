@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "mp-tabs":"@miniprogram-component-plus/tabs",
-    "list-item":"../../components/listItem/index"
+    "list-item":"../../components/listItem/index",
+    "mp-banner":"../../components/banner/index"
   },
   "navigationBarTitleText":"首页",
   "enablePullDownRefresh":true,

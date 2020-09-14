@@ -96,9 +96,9 @@ Page({
     })
   },
   schHandler() {
-    wx.showToast({
-      icon: "none",
-      title: this.data.schKey,
+    let {schKey} = this.data
+    wx.navigateTo({
+      url: `/views/sch/index?key=${schKey}`,
     })
   },
   onTabClick_1(e) {

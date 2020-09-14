@@ -1,0 +1,10 @@
+<!--views/sch/index.wxml-->
+<view class="page">
+	<view class="search">
+		<view class="ipt-wrap">
+			<icon class="icon-small" type="search" size="24"></icon>
+			<input class="ipt" type="text" value="{{key}}" bindinput="schIptHandler" placeholder="搜索新闻、时事" />
+		</view>
+		<view class="btn" bindtap="schHandler">搜索</view>
+	</view>
+</view>
