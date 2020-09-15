@@ -1,7 +1,7 @@
 {
   "pages": [
-    "views/report/index",
     "views/signIn/index",
+    "views/report/index",
     "views/detail/index",
     "views/index/index",
     "pages/index/index",

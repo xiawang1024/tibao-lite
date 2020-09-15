@@ -19,6 +19,27 @@ const httpSignInList = (page) => {
   })
 }
 
+// 签到
+const httpSignIn = (meetid,lat,lng) => {
+  return new Promise((resolve,reject) => {
+    wx.request({
+      url: `${baseUrl}/public/sign`,
+      method:"POST",
+      data:{
+        meetid,
+        lat,
+        lng
+      },
+      success(res) {
+        resolve(res.data)
+      },
+      fail(){
+        reject()
+      }
+    })
+  })
+}
 export {
-  httpSignInList
+  httpSignInList,
+  httpSignIn
 }

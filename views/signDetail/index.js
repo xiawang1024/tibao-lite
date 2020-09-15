@@ -1,7 +1,7 @@
 // views/signDetail/index.js
 // const dayjs = require("../../miniprogram_npm/dayjs/index")
 import dayjs from "../../utils/dayjs"
-import {httpSignInList} from "../../api/sign"
+import {httpSignInList,httpSignIn} from "../../api/sign"
 Page({
 
   /**
@@ -12,7 +12,9 @@ Page({
     currentTime:"",
     timeAgo:"",
     isStart:false,
-    isEnd:false
+    isEnd:false,
+    latitude:"",
+    longitude:""
   },
 
   /**
@@ -22,9 +24,10 @@ Page({
     const eventChannel = this.getOpenerEventChannel()
     if(Object.keys(eventChannel).length) {
       eventChannel.on("signInInfo",(data) => {    
-        this.endHandler(data.endtime).then(() => {
+        this.endHandler(data.endtime).then(() => {          
           console.log('会议结束')
-        })     
+        }) 
+        this.locationInit()    
         this.timer = setInterval(() => {      
           this.timeInit()
         },1000)   
@@ -79,6 +82,9 @@ Page({
    */
   onUnload: function () {
     clearInterval(this.timer)
+    wx.stopLocationUpdate({
+      success: (res) => {},
+    })
   },
 
   /**
@@ -101,8 +107,26 @@ Page({
   onShareAppMessage: function () {
 
   },
-
-
+  signInHandler() {
+    let {info,latitude,longitude} = this.data
+    httpSignIn(info.itemid,latitude.longitude).then(() => {
+      console.log("签到结果")
+    })
+  },
+  locationInit() {
+    wx.startLocationUpdate({
+      success: (res) => {
+        wx.onLocationChange((result) => {
+          console.log(result)
+          let {latitude,longitude} = result
+          this.setData({
+            latitude,
+            longitude
+          })
+        })
+      },
+    })
+  },
   timeInit() {
     let time = this.data.info.starttime
     // let time = "2020-09-14 18:00:00"

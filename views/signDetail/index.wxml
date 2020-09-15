@@ -33,7 +33,7 @@
 		</view>
 
 		<view class="btn-wrap">
-			<view class="btn" wx:if="{{!isEnd}}">
+			<view class="btn" wx:if="{{!isEnd}}" bindtap="signInHandler">
 				<view class="text">签到</view>
 				<view class="time" wx:if="{{!isStart}}">{{timeAgo}}</view>
 			</view>
