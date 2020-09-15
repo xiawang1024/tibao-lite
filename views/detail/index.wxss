@@ -4,3 +4,14 @@
   padding:20rpx;
   box-sizing: border-box;
 }
+
+.info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding:20rpx 0;
+  color: #666666;
+  box-sizing: border-box;
+}
+

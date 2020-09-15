@@ -27,7 +27,7 @@
 	<view class="content-wrap">
 		<mp-banner></mp-banner>
 		<block wx:for="{{listData}}" wx:key="id" wx:for-item="item">
-			<list-item  item-data="{{item}}" bindtap="goToDetail"></list-item>
+			<list-item  item-data="{{item}}" bindtap="goToDetail" data-itemid="{{item.itemid}}"></list-item>
 		</block>
 		
 	</view>

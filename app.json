@@ -1,10 +1,10 @@
 {
   "pages": [
+    "views/detail/index",
     "views/index/index",
     "pages/index/index",
     "views/signIn/index",
     "views/signDetail/index",
-    "views/detail/index",
     "pages/center/index",
     "pages/adminDetail/index",
     "pages/adminList/index",

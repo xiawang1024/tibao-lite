@@ -1,4 +1,8 @@
 <!--views/detail/index.wxml-->
 <view class="page-detail">
+  <view class="info">
+    <text class="origin">{{editor}}</text>
+    <text class="time">{{datetime}}</text>
+  </view>
   <wxParse nodes="{{htmlString}}" />
 </view>

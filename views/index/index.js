@@ -226,8 +226,10 @@ Page({
   },
 
   goToDetail(e){
+    let {itemid} = e.currentTarget.dataset
+
     wx.navigateTo({
-      url: '/views/detail/index',
+      url: `/views/detail/index?itemid=${itemid}`,
     })
 
   }
