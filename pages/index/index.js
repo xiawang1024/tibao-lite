@@ -8,52 +8,23 @@ import {
 // import {httpPublic} from '../../api/form'
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    redirectPath:""
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
+  
+  onLoad: function (options) {
+    console.log(options)
+    this.setData({
+      redirectPath:options.path
     })
-  },
-  onLoad: function () {
-   
   },
 
   onShow() {
-    this.autoLogin()
+    // this.autoLogin()
   },
 
-  autoLogin() {
-    let token = wx.getStorageSync('token-wechat')
-    if(!token) {
-      return false
-    }
-    // httpPublic().then(res => {      
-    //   wx.setStorage({
-    //     data: res,
-    //     key: 'areaArr',
-    //   })   
-    //   wx.showLoading({
-    //     title: '自动登录中...',
-    //     icon:'loading',
-    //     success() {
-    //       wx.navigateTo({
-    //         url: '/pages/form/index',
-    //       }) 
-    //     }
-    //   }) 
-      
-    // }).catch(() => {
-    //   wx.showModal({
-    //     title:'提示',
-    //     content:'登录已过期，请重新登录'
-    //   })
-    // })    
-  },
+  
 
   // 登录 get token
   loginHandler() {
@@ -83,14 +54,22 @@ Page({
       if(!loginInfo.mobile) {
         await httpGetPhone(encryptedData,iv)
       }
+      let url = `/${this.data.redirectPath}` || "/views/index/index"
       wx.showToast({
         title: '登录成功',
         icon: 'loading',
         success() {
           setTimeout(() => {
-            wx.redirectTo({
-              url: '/pages/form/index',
-            })
+            if(url.indexOf("center")>0){
+              wx.switchTab({
+                url: url,
+              })
+            }else {
+              wx.navigateTo({
+                url
+              })
+            }
+           
           }, 300)
         }
       })

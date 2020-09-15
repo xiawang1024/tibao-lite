@@ -15,14 +15,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    httpAdmin().then(res => {
-      if(res.admin) {
-        this.setData({
-          isAdmin:true,
-          num:res.num
-        })
-      }
+    wx.getStorage({
+      key: 'token-wechat',      
+    }).then(res => {
+      httpAdmin().then(res => {
+        if(res.admin) {
+          this.setData({
+            isAdmin:true,
+            num:res.num
+          })
+        }
+      })
+    }).catch(() => {
+      console.log('no token')
+      wx.showModal({        
+        content:"请先登录",
+        complete() {
+          
+          let len = getCurrentPages().length
+          let current = getCurrentPages()[len-1].is
+          wx.redirectTo({
+            url: `/pages/index/index?path=${current}`,
+          })
+        }
+      })
     })
+    
   },
 
   /**

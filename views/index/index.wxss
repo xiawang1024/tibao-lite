@@ -6,7 +6,6 @@
   background-color: #eeeeee;
 } */
 
-@import "./index.skeleton.wxss";
 
 .search{
   margin-bottom: 24rpx;
