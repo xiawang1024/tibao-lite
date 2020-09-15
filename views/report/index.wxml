@@ -1,2 +1,4 @@
 <!--views/report/index.wxml-->
-<text>views/report/index.wxml</text>
+<view class="page">
+  <view class="link" bindtap="goToDetail"></view>
+</view>

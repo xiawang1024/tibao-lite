@@ -74,12 +74,12 @@ Page({
 
   },
   goList() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/myList/index',
     })
   },
   goIssuList() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/adminList/index',
     })
   },

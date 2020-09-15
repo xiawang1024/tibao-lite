@@ -27,6 +27,6 @@
 	</view>
 
 	<button class="logout-btn" bindtap="goOutHandler">退出登录</button>
-	<custom-nav></custom-nav>
+	<!-- <custom-nav></custom-nav> -->
 
 </view>

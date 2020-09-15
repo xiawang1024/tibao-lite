@@ -30,5 +30,5 @@
 			<button size="mini" class="btn" data-mid="{{item.mid}}" data-itemid="{{item.itemid}}" bindtap="goDetail">查看</button>
 		</view>
 	</view>
-	<custom-nav></custom-nav>
+	<!-- <custom-nav></custom-nav> -->
 </view>

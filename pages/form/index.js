@@ -24,7 +24,24 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options) {
+
+    wx.getStorage({
+      key: 'token-wechat',      
+    }).then(res => {
+      console.log(res)
+    }).catch(() => {
+      console.log('no token')
+      wx.showModal({        
+        content:"请先登录",
+        complete() {
+          wx.redirectTo({
+            url: '/pages/index/index',
+          })
+        }
+      })
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -160,17 +177,18 @@ Page({
     })
   },
 
-  submitHandler() {
+  submitHandler() {    
     let {name,idcard,address,phone,areaIdx,userIdx,eventIdx,content,areaArr,userArr,eventArr} = this.data
     if(!name||!idcard||!address||!phone||!areaIdx||!userIdx||!eventIdx||!content) {
       wx.showToast({
         title: '请填写必填信息',
         icon:'none'
       })
+      return 
     }
-    let mid = areaArr[areaIdx].id
+    let mid = areaArr[areaIdx]&&areaArr[areaIdx].id
     let username = userIdx === -1 ? '' : userArr[userIdx].username 
-    let catid = eventArr[eventIdx].catid
+    let catid = eventArr[eventIdx]&& eventArr[eventIdx].catid
     console.log(mid)
     httpIssue({name,idcard,address,phone,mid,username,catid,content}).then((res) => {
       if(res.data === 0) {
@@ -190,6 +208,7 @@ Page({
           wx.navigateTo({
             url: '/pages/myList/index',
           })
+         
         }
       })
     })

@@ -1,1 +1,13 @@
 /* views/report/index.wxss */
+
+.page{
+  width: 100%;
+  padding:0 20rpx;
+  box-sizing: border-box;
+}
+
+.page .link{
+  width: 100%;
+  height: 160rpx;
+  background: orange;
+}

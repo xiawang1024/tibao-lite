@@ -78,5 +78,5 @@
 		</view>
 	</view>
 	<button class="btn-submit" bindtap="submitHandler">提交</button>
-	<custom-nav></custom-nav>
+	<!-- <custom-nav></custom-nav> -->
 </view>
