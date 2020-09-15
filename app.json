@@ -1,9 +1,9 @@
 {
   "pages": [
+    "views/signIn/index",
     "views/detail/index",
     "views/index/index",
     "pages/index/index",
-    "views/signIn/index",
     "views/signDetail/index",
     "pages/center/index",
     "pages/adminDetail/index",

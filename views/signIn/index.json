@@ -1,4 +1,7 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText":"签到"
+  "navigationBarTitleText":"签到",
+  "enablePullDownRefresh":true,
+  "backgroundColor":"#fff",
+ "backgroundTextStyle":"dark"
 }

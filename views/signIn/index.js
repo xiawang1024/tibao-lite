@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pageNo:0,
     listData:[]
   },
 
@@ -46,15 +47,24 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
+  onPullDownRefresh() {
+    this.setData({
+      pageNo:0
+    },() => {
+      this.getDataList(0)
+    })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  onReachBottom () {
+    let {pageNo} = this.data
+    this.setData({
+      pageNo:pageNo++
+    },() => {
+      this.getDataList()
+    })
   },
 
   /**
@@ -63,12 +73,29 @@ Page({
   onShareAppMessage: function () {
 
   },
-  getDataList() {
-    httpSignInList().then(res => {
+  getDataList(type=1) {
+    wx.showLoading({
+      title: '努力加载...',
+    })
+    // type 0:下拉  1：上拉
+    let {listData,pageNo} = this.data
+    if(type === 0) {
+      listData = []
+    }
+    httpSignInList(pageNo).then(res => {
+
+      wx.hideLoading({
+        success: (res) => {},
+      })
+      if(type ===0){
+        wx.stopPullDownRefresh({
+          success: (res) => {},
+        })
+      }
       let {code,data} = res
       if(code === 0) {
         this.setData({
-          listData:data.Meet
+          listData:listData.concat(data.Meet)
         })
       }
     })
