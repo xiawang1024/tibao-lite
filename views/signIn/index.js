@@ -103,6 +103,29 @@ Page({
 
   goToDetail(e) {
     let {info} = e.currentTarget.dataset
+    let token = wx.getStorageSync('token-wechat')
+    // 权限拦截
+    if(!token){
+      wx.showModal({        
+        content:"请先登录",
+        complete() {          
+          wx.redirectTo({
+            url: `/pages/index/index?path=sign`,
+          })
+        }
+      })
+      return 
+    }
+
+    //是否管理员
+    let {admin} = wx.getStorageSync('admin')
+    if(!admin) {
+      wx.showModal({        
+        content:"您没有权限",        
+      })
+      return 
+    }
+
     wx.navigateTo({
       url: '/views/signDetail/index',
       success: function(res) {

@@ -1,10 +1,10 @@
 //index.js
 //获取应用实例
-const app = getApp()
 import {
   httpLogin,
   httpGetPhone
 } from '../../api/login'
+import {httpAdmin} from "../../api/user"
 // import {httpPublic} from '../../api/form'
 Page({
   data: {
@@ -34,6 +34,13 @@ Page({
           if (res.code) {
             httpLogin(res.code).then((res) => {
               resolve(res)
+
+              httpAdmin().then(res => {
+                wx.setStorage({
+                  data: res,
+                  key: 'admin',
+                })
+              })
             })
           } else {
             console.log('登录失败')
@@ -55,13 +62,24 @@ Page({
         await httpGetPhone(encryptedData,iv)
       }
       // let url = `/${this.data.redirectPath}` || "/views/index/index"
-      let url = this.data.redirectPath === "center" ? "/pages/center/index" : "/pages/form/index"
+      let url = ""
+
+      let {redirectPath} = this.data
+      if(redirectPath === "center") {
+        url = "/pages/center/index"
+      }else if(redirectPath === "sign"){
+        url = "/views/signIn/index"
+      }else if(redirectPath === "form"){
+        url = "/pages/form/index"
+      }else {
+        url = "/views/index/index"
+      }
       wx.showToast({
         title: '登录成功',
         icon: 'loading',
         success() {
           setTimeout(() => {
-            if(url.indexOf("center")>0){
+            if(redirectPath==="center" || redirectPath === "sign"){
               wx.switchTab({
                 url: url,
               })
