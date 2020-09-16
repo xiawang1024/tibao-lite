@@ -35,10 +35,10 @@ Page({
       wx.showModal({        
         content:"请先登录",
         complete() {
-          let len = getCurrentPages().length
-          let current = getCurrentPages()[len-1].is
+          // let len = getCurrentPages().length
+          // let current = getCurrentPages()[len-1].is
           wx.redirectTo({
-            url: `/pages/index/index?path=${current}`,
+            url: `/pages/index/index?path=form`,
           })
         }
       })

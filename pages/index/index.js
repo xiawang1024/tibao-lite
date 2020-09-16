@@ -54,7 +54,8 @@ Page({
       if(!loginInfo.mobile) {
         await httpGetPhone(encryptedData,iv)
       }
-      let url = `/${this.data.redirectPath}` || "/views/index/index"
+      // let url = `/${this.data.redirectPath}` || "/views/index/index"
+      let url = this.data.redirectPath === "center" ? "/pages/center/index" : "/pages/form/index"
       wx.showToast({
         title: '登录成功',
         icon: 'loading',
