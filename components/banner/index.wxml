@@ -1,10 +1,10 @@
 <!--components/banner/index.wxml-->
 <view class="banner">
-	<swiper indicator-dots="true" autoplay="true"  circular="true">
-		<block wx:for="{{background}}" wx:key="*this">
+	<swiper class="banner" indicator-dots="true" autoplay="true"  circular="true">
+		<block wx:for="{{bannerData}}" wx:key="*this">
 			<swiper-item>
-				<view class="swiper-item {{item}}">
-					<image class="cover" src="{{item.thumb}}" mode="aspectFill"></image>
+				<view class="swiper-item">
+					<image class="cover" src="{{item.thumb}}" mode="aspectFill" data-itemid="{{item.itemid}}" bindtap="goToDetail"></image>
 				</view>
 			</swiper-item>
 		</block>

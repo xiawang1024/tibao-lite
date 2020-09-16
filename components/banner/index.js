@@ -18,6 +18,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    goToDetail(e){
+      let {itemid} = e.currentTarget.dataset
+      wx.navigateTo({
+        url: `/views/detail/index?itemid=${itemid}`,
+      })
+    }
   }
 })

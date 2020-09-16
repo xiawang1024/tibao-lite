@@ -12,38 +12,38 @@ Page({
    */
   data: {
     schKey: '',
-    pageNo:0,
-    tabs_1:[],
-    tabs_2:[],
-    tabs_3:[],
+    pageNo: 0,
+    tabs_1: [],
+    tabs_2: [],
+    tabs_3: [],
     activeTab_1: 0,
     activeTab_2: 0,
     activeTab_3: 0,
     listData: [],
-    bannerData:[]
+    bannerData: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady () {
+  onReady() {
     this.getNewsTypes().then(() => {
       this.getNewsData()
-    })    
+    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
@@ -63,11 +63,11 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh () {
+  onPullDownRefresh() {
     let pageNo = this.data.pageNo
     this.setData({
-      pageNo:0
-    },() => {
+      pageNo: 0
+    }, () => {
       this.getNewsData(0)
     })
   },
@@ -78,8 +78,8 @@ Page({
   onReachBottom() {
     let pageNo = this.data.pageNo
     this.setData({
-      pageNo:pageNo++
-    },() => {
+      pageNo: pageNo++
+    }, () => {
       this.getNewsData()
     })
   },
@@ -97,31 +97,36 @@ Page({
     })
   },
   schHandler() {
-    let {schKey} = this.data
+    let {
+      schKey
+    } = this.data
     wx.navigateTo({
       url: `/views/sch/index?key=${schKey}`,
     })
   },
   onTabClick_1(e) {
     let idx = e.detail.index
-    let {tabs_1,activeTab_2} = this.data
+    let {
+      tabs_1,
+      activeTab_2
+    } = this.data
     let tabs_2 = []
     let tabs_3 = []
-    if(tabs_1[idx].subcate && tabs_1[idx].subcate.length>0){
+    if (tabs_1[idx].subcate && tabs_1[idx].subcate.length > 0) {
       tabs_2 = tabs_1[idx].subcate
 
-      if(tabs_2[activeTab_2].subcate && tabs_2[activeTab_2].subcate.length > 0) {
+      if (tabs_2[activeTab_2].subcate && tabs_2[activeTab_2].subcate.length > 0) {
         tabs_3 = tabs_2[activeTab_2].subcate
       }
     }
 
-    
+
     this.setData({
       activeTab_1: idx,
       tabs_2,
       tabs_3,
-      listData:[]
-    },() => {
+      listData: []
+    }, () => {
       this.getNewsData()
     })
   },
@@ -129,53 +134,56 @@ Page({
     let idx = e.detail.index
     let tabs_2 = this.data.tabs_2
     let tabs_3 = []
-    if(tabs_2[idx].subcate && tabs_2[idx].subcate.length>0){
+    if (tabs_2[idx].subcate && tabs_2[idx].subcate.length > 0) {
       tabs_3 = tabs_2[idx].subcate
     }
     this.setData({
       activeTab_2: idx,
       tabs_3,
-      listData:[]
-    },() => {
+      listData: []
+    }, () => {
       this.getNewsData()
-    })    
+    })
   },
   onTabClick_3(e) {
     let idx = e.detail.index
     this.setData({
       activeTab_3: idx,
-      listData:[]
-    },() => {
+      listData: []
+    }, () => {
       this.getNewsData()
     })
   },
 
-  getNewsTypes(){
-    return new Promise((resolve,reject) => {
+  getNewsTypes() {
+    return new Promise((resolve, reject) => {
       httpNewsTypes().then(res => {
-        let {code,data} = res
-        if(code === 0) {
+        let {
+          code,
+          data
+        } = res
+        if (code === 0) {
           this.setData({
-            tabs_1:data.categories
+            tabs_1: data.categories
           })
-          
+
           this.flatTabTypes(data.categories[0])
           resolve()
-        }else {
+        } else {
           reject()
         }
       })
     })
-    
+
   },
 
   flatTabTypes(tabs_1) {
     let tabs_2 = []
     let tabs_3 = []
-    if(tabs_1.subcate && tabs_1.subcate.length>0) {
+    if (tabs_1.subcate && tabs_1.subcate.length > 0) {
       tabs_2 = tabs_1.subcate
 
-      if(tabs_2.subcate && tabs_2.subcate.length>0){
+      if (tabs_2.subcate && tabs_2.subcate.length > 0) {
         tabs_3 = tabs_2.subcate
       }
     }
@@ -186,16 +194,24 @@ Page({
     })
   },
 
-  getNewsData(type=1) {
+  getNewsData(type = 1) {
     //type 0:下拉   1：上拉
-    let {tabs_1,tabs_2,tabs_3,activeTab_1,activeTab_2,activeTab_3,pageNo} = this.data
+    let {
+      tabs_1,
+      tabs_2,
+      tabs_3,
+      activeTab_1,
+      activeTab_2,
+      activeTab_3,
+      pageNo
+    } = this.data
     let catid = ''
-    console.log(tabs_3.length,activeTab_3)
-    if(tabs_3.length>0){
+    console.log(tabs_3.length, activeTab_3)
+    if (tabs_3.length > 0) {
       catid = tabs_3[activeTab_3].catid
-    }else if(tabs_2.length>0) {
+    } else if (tabs_2.length > 0) {
       catid = tabs_2[activeTab_2].catid
-    }else {
+    } else {
       catid = tabs_1[activeTab_1].catid
     }
 
@@ -207,15 +223,15 @@ Page({
       success: (res) => {},
     })
     let originListData = this.data.listData
-    if(type === 0) {
+    if (type === 0) {
       originListData = []
     }
-    httpNewsList(catid,pageNo).then(res => {
+    httpNewsList(catid, pageNo).then(res => {
       wx.hideLoading()
       wx.hideNavigationBarLoading({
         success: (res) => {},
       })
-      if(type ===0){
+      if (type === 0) {
         wx.stopPullDownRefresh({
           success: (res) => {},
         })
@@ -233,24 +249,26 @@ Page({
       // } 
       this.setData({
         listData: originListData.concat(res.data.List)
-      },() => {
-        let bannerData = this.filterBannerData(this.data.listData.slice(0,10))
-          this.setData({
+      }, () => {
+        let bannerData = this.filterBannerData(this.data.listData.slice(0, 10))
+        console.log(bannerData)
+        this.setData({
           bannerData
         })
       })
     })
   },
   filterBannerData(list) {
-    return list.map(item => {
-      console.log(item)
-      return item&&item.level===0
+    return list.filter(item => {      
+      return item&&item.level === 0
     })
   },
-  
 
-  goToDetail(e){
-    let {itemid} = e.currentTarget.dataset
+
+  goToDetail(e) {
+    let {
+      itemid
+    } = e.currentTarget.dataset
 
     wx.navigateTo({
       url: `/views/detail/index?itemid=${itemid}`,
