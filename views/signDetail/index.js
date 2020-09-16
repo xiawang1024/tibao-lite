@@ -109,8 +109,11 @@ Page({
   },
   signInHandler() {
     let {info,latitude,longitude} = this.data
-    httpSignIn(info.itemid,latitude.longitude).then(() => {
+    httpSignIn(info.itemid,latitude,longitude).then((res) => {
       console.log("签到结果")
+      wx.showModal({
+        title:res.message
+      })
     })
   },
   locationInit() {

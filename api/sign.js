@@ -21,10 +21,14 @@ const httpSignInList = (page) => {
 
 // 签到
 const httpSignIn = (meetid,lat,lng) => {
+  let token = wx.getStorageSync('token-wechat')
   return new Promise((resolve,reject) => {
     wx.request({
       url: `${baseUrl}/public/sign`,
       method:"POST",
+      header: {
+        "Authorization": `Bearer ${token}`
+      },
       data:{
         meetid,
         lat,
