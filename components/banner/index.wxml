@@ -3,7 +3,9 @@
 	<swiper indicator-dots="true" autoplay="true"  circular="true">
 		<block wx:for="{{background}}" wx:key="*this">
 			<swiper-item>
-				<view class="swiper-item {{item}}"></view>
+				<view class="swiper-item {{item}}">
+					<image class="cover" src="{{item.thumb}}" mode="aspectFill"></image>
+				</view>
 			</swiper-item>
 		</block>
 	</swiper>

@@ -10,25 +10,34 @@
 		<view class="btn" bindtap="schHandler">搜索</view>
 	</view>
 	<view class="first">
-		<mp-tabs tabs="{{tabs_1}}" activeTab="{{activeTab_1}}" tabClass="first-nav" bindtabclick="onTabClick_1" activeClass="tab-bar-title__selected">
+		<mp-tabs tabs="{{tabs_1}}" activeTab="{{activeTab_1}}" tabClass="first-nav" bindtabclick="onTabClick_1"
+			activeClass="tab-bar-title__selected">
 		</mp-tabs>
 	</view>
 	<view class="line"></view>
-	<view class="second"  wx:if="{{tabs_2.length>0}}">
-		<mp-tabs tabs="{{tabs_2}}" activeTab="{{activeTab_2}}" tabClass="second-nav" bindtabclick="onTabClick_2" activeClass="tab-bar-title__selected">
+	<view class="second" wx:if="{{tabs_2.length>0}}">
+		<mp-tabs tabs="{{tabs_2}}" activeTab="{{activeTab_2}}" tabClass="second-nav" bindtabclick="onTabClick_2"
+			activeClass="tab-bar-title__selected">
 		</mp-tabs>
 	</view>
 
-	<view class="three"  wx:if="{{tabs_3.length>0}}">
-		<mp-tabs tabs="{{tabs_3}}" activeTab="{{activeTab_3}}" tabClass="three-nav" bindtabclick="onTabClick_3" activeClass="tab-bar-title__selected">
+	<view class="three" wx:if="{{tabs_3.length>0}}">
+		<mp-tabs tabs="{{tabs_3}}" activeTab="{{activeTab_3}}" tabClass="three-nav" bindtabclick="onTabClick_3"
+			activeClass="tab-bar-title__selected">
 		</mp-tabs>
 	</view>
 
 	<view class="content-wrap">
-		<mp-banner></mp-banner>
+		<mp-banner wx:if="{{bannerData.length>0}}" banner-data="{{bannerData}}"></mp-banner>
 		<block wx:for="{{listData}}" wx:key="id" wx:for-item="item">
-			<list-item  item-data="{{item}}" bindtap="goToDetail" data-itemid="{{item.itemid}}"></list-item>
+			<!-- <block wx:if="{{index === 0}}">
+				<mp-banner></mp-banner>
+			</block>
+			<block wx:else>
+				
+			</block> -->
+			<list-item item-data="{{item}}" bindtap="goToDetail" data-itemid="{{item.itemid}}" wx:if="{{item.level===0}}"></list-item>
 		</block>
-		
+
 	</view>
 </view>

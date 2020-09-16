@@ -1,7 +1,7 @@
 <!--components/listItem/index.wxml-->
 <view class="list-item">
 	<view class="img-wrap">
-		<image class="img" mode="aspectFill" src="{{itemData.src}}"></image>
+		<image class="img" mode="aspectFill" src="{{itemData.thumb}}"></image>
 	</view>
 
 	<view class="text-wrap">

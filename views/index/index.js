@@ -19,7 +19,8 @@ Page({
     activeTab_1: 0,
     activeTab_2: 0,
     activeTab_3: 0,
-    listData: []
+    listData: [],
+    bannerData:[]
   },
 
   /**
@@ -219,11 +220,34 @@ Page({
           success: (res) => {},
         })
       }
+      // if(pageNo === 0 || type===0) {
+      //   //update banner data
+      //   // let bannerData = originListData.slice(0,10)
+      //   let bannerData = this.filterBannerData(res.data.list.slice(0,10))
+      //   console.log(res.data.list)
+      //   console.log(res.data.list.slice(0,10))
+      //   console.log(bannerData,'-----')
+      //   this.setData({
+      //     bannerData
+      //   })
+      // } 
       this.setData({
         listData: originListData.concat(res.data.List)
+      },() => {
+        let bannerData = this.filterBannerData(this.data.listData.slice(0,10))
+          this.setData({
+          bannerData
+        })
       })
     })
   },
+  filterBannerData(list) {
+    return list.map(item => {
+      console.log(item)
+      return item&&item.level===0
+    })
+  },
+  
 
   goToDetail(e){
     let {itemid} = e.currentTarget.dataset

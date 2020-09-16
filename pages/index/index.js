@@ -83,9 +83,13 @@ Page({
               wx.switchTab({
                 url: url,
               })
-            }else {
+            }else if(redirectPath === "form") {
               wx.navigateTo({
                 url
+              })
+            }else {
+              wx.switchTab({
+                url: '/views/index/index',
               })
             }
            
