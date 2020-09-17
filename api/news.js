@@ -54,8 +54,29 @@ const httpNewsData = (itemid) => {
   })
 }
 
+//文稿搜索
+const httpNewsSch = (kw,page=0) => {
+  return new Promise((resolve,reject) => {
+    wx.request({
+      url: `${baseUrl}/public/search`,
+      method:"POST",
+      data:{
+        kw,
+        page
+      },
+      success(res) {
+        resolve(res.data)
+      },
+      fail(){
+        reject()
+      }
+    })
+  })
+}
+
 export {
   httpNewsTypes,
   httpNewsList,
-  httpNewsData
+  httpNewsData,
+  httpNewsSch
 }

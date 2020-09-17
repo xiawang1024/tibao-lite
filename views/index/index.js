@@ -101,7 +101,7 @@ Page({
       schKey
     } = this.data
     wx.navigateTo({
-      url: `/views/sch/index?key=${schKey}`,
+      url: `/views/sch/index?kw=${schKey}`,
     })
   },
   onTabClick_1(e) {

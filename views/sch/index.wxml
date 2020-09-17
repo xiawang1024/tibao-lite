@@ -3,8 +3,14 @@
 	<view class="search">
 		<view class="ipt-wrap">
 			<icon class="icon-small" type="search" size="24"></icon>
-			<input class="ipt" type="text" value="{{key}}" bindinput="schIptHandler" placeholder="搜索新闻、时事" />
+			<input class="ipt" type="text" value="{{kw}}" bindinput="schIptHandler" placeholder="搜索新闻、时事" />
 		</view>
 		<view class="btn" bindtap="schHandler">搜索</view>
+	</view>
+
+	<view class="content-wrap">
+		<block wx:for="{{listData}}" wx:key="id" wx:for-item="item">
+			<list-item item-data="{{item}}" bindtap="goToDetail" data-itemid="{{item.itemid}}"></list-item>
+		</block>
 	</view>
 </view>

@@ -1,11 +1,17 @@
 // views/sch/index.js
+
+import {
+  httpNewsSch
+} from "../../api/news"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    key:""
+    kw: "",
+    page:0,
+    listData:[]
   },
 
   /**
@@ -13,10 +19,17 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    let {key} = options
-    this.setData({
-      key
-    })
+    let {
+      kw
+    } = options
+
+    if(kw){
+      this.setData({
+        kw
+      },() => {
+        this.getData()
+      })
+    }    
   },
 
   /**
@@ -69,11 +82,31 @@ Page({
   },
   schIptHandler(e) {
     this.setData({
-      key:e.detail.value
+      kw: e.detail.value
     })
   },
   schHandler() {
-    let {key} = this.data
-    console.log(key)
+    this.getData()
+  },
+  getData() {
+    let {kw,page} = this.data
+    httpNewsSch(kw,page).then(res => {
+      let {code,data} = res
+      if(code ===0) {
+        this.setData({
+          listData:data.Search
+        })
+      }
+    })
+  },
+  goToDetail(e) {
+    let {
+      itemid
+    } = e.currentTarget.dataset
+
+    wx.navigateTo({
+      url: `/views/detail/index?itemid=${itemid}`,
+    })
+
   }
 })
