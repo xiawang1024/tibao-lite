@@ -194,6 +194,9 @@ Page({
     let catid = eventArr[eventIdx]&& eventArr[eventIdx].catid
     console.log(mid)
     httpIssue({name,idcard,address,phone,mid,username,catid,content}).then((res) => {
+      wx.removeStorage({
+        key: 'newMobile',
+      })
       if(res.data === 0) {
         wx.showModal({
           title:'提示',
@@ -205,9 +208,7 @@ Page({
         title: '提交成功',
         icon:'none',
         success() {
-          wx.removeStorage({
-            key: 'newMobile',
-          })
+          
           wx.navigateTo({
             url: '/pages/myList/index',
           })

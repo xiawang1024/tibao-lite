@@ -51,10 +51,14 @@ const httpIssue = ({name,idcard,address,phone,mid,username,catid,content}) => {
 }
 // 获取手机验证码
 const httpGetPhoneCode = (phone) => {
+  let token = wx.getStorageSync('token-wechat')
   return new Promise((resolve,reject) => {
     wx.request({
       url: `${baseUrl}/user/sms`,
       method:"POST",
+      header: {
+        "Authorization": `Bearer ${token}`
+      },
       data:{
         phone
       },

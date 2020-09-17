@@ -73,7 +73,15 @@ Page({
     })
   },
   codeSendHandler() {
-    httpGetPhoneCode().then(res => {
+    let {newMobile} = this.data
+    if(!newMobile) {
+      wx.showToast({
+        title: '请输入正确手机号',
+        icon:"none"
+      })
+      return 
+    }
+    httpGetPhoneCode(newMobile).then(res => {
       if(res.code === 0) {
         wx.showToast({
           title: '发送成功',
