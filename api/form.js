@@ -49,8 +49,27 @@ const httpIssue = ({name,idcard,address,phone,mid,username,catid,content}) => {
     })
   })  
 }
+// 获取手机验证码
+const httpGetPhoneCode = (phone) => {
+  return new Promise((resolve,reject) => {
+    wx.request({
+      url: `${baseUrl}/user/sms`,
+      method:"POST",
+      data:{
+        phone
+      },
+      success(res) {
+        resolve(res.data)
+      },
+      fail() {
+        reject()
+      }
+    })
+  })
+}
 
 export {
   httpPublic,
-  httpIssue
+  httpIssue,
+  httpGetPhoneCode
 }

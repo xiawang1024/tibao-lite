@@ -1,4 +1,5 @@
 // pages/editTel/index.js
+import {httpGetPhoneCode} from "../../api/form"
 Page({
 
   /**
@@ -72,7 +73,20 @@ Page({
     })
   },
   codeSendHandler() {
-    this.timeAgoHandler()
+    httpGetPhoneCode().then(res => {
+      if(res.code === 0) {
+        wx.showToast({
+          title: '发送成功',
+          icon:"none"
+        })
+        this.timeAgoHandler()
+      }else{
+        wx.showToast({
+          title: res.message,
+          icon:"none"
+        })
+      }
+    })
     // wx.showModal({
     //   cancelColor: 'cancelColor',
     // })
