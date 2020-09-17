@@ -247,6 +247,13 @@ Page({
       //     bannerData
       //   })
       // } 
+      if(res.data.List&&res.data.List.length===0){
+        wx.showToast({
+          title: '没有更多数据',
+          icon:"none"
+        })
+        return 
+      }
       this.setData({
         listData: originListData.concat(res.data.List)
       }, () => {
@@ -260,7 +267,7 @@ Page({
   },
   filterBannerData(list) {
     return list.filter(item => {      
-      return item&&item.level === 0
+      return item&&item.level === 1
     })
   },
 

@@ -71,7 +71,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    let {page} = this.data
+    this.setData({
+      page:page++
+    },() => {
+      this.getData()
+    })
   },
 
   /**
@@ -93,6 +98,13 @@ Page({
     httpNewsSch(kw,page).then(res => {
       let {code,data} = res
       if(code ===0) {
+        if(data.Search&&data.Search.length===0) {
+          wx.showToast({
+            title: '没有结果',
+            icon:"none"
+          })
+          return 
+        }
         this.setData({
           listData:data.Search
         })
