@@ -132,12 +132,13 @@ const httpIssueDeal = ({mid,itemid,status}) => {
       success(res) {
         let {
           code,
-          data
+          data,
+          message
         } = res.data
         if (code === 0) {
           resolve(data)
         } else {
-          reject()
+          reject(message)
         }
       },
       fail() {

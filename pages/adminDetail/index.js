@@ -111,6 +111,11 @@ Page({
           })          
         },
       })
+    }).catch((message) => {
+      wx.showToast({
+        title: message,
+        icon:"none"
+      })
     })
   }
 })

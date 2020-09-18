@@ -32,7 +32,8 @@
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": true,
     "packNpmManually": false,
-    "packNpmRelationList": []
+    "packNpmRelationList": [],
+    "bundle": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.12.2",
