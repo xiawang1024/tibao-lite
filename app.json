@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/center/index",
     "views/index/index",
+    "pages/center/index",
     "views/like/index",
     "views/about/index",
     "views/signIn/index",
