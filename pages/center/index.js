@@ -107,5 +107,15 @@ Page({
     wx.redirectTo({
       url: '/pages/index/index',
     })
+  },
+  goCollect(){
+    wx.navigateTo({
+      url: '/views/like/index',
+    })
+  },
+  goAbout() {
+    wx.navigateTo({
+      url: '/views/about/index',
+    })
   }
 })

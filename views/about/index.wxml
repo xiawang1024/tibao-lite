@@ -1,0 +1,4 @@
+<!--views/about/index.wxml-->
+<view class="page">
+  <web-view src="https://tibao.vic-net.net/about/index.html"></web-view>
+</view>

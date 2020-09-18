@@ -115,8 +115,12 @@ const httpAdminList = () => {
   })
 }
 //处理提议
-const httpIssueDeal = ({mid,itemid,status}) => {
-  return new Promise((resolve,reject)=>{
+const httpIssueDeal = ({
+  mid,
+  itemid,
+  status
+}) => {
+  return new Promise((resolve, reject) => {
     let token = wx.getStorageSync('token-wechat')
     wx.request({
       url: `${baseUrl}/user/deal`,
@@ -124,7 +128,7 @@ const httpIssueDeal = ({mid,itemid,status}) => {
       header: {
         "Authorization": `Bearer ${token}`
       },
-      data:{
+      data: {
         mid,
         itemid,
         status
@@ -147,13 +151,34 @@ const httpIssueDeal = ({mid,itemid,status}) => {
     })
   })
 }
-
-
+// 获取收藏列表
+const httpCollectData = (page) => {
+  let token = wx.getStorageSync('token-wechat')
+  return new Promise((resolve,reject) => {
+    wx.request({
+      url: `${baseUrl}/public/favlist`,
+      method:"POST",
+      header: {
+        "Authorization": `Bearer ${token}`
+      },
+      data:{
+        page
+      },
+      success(res) {
+        resolve(res.data)
+      },
+      fail(){
+        reject()
+      }
+    })
+  })
+}
 
 export {
   httpIssueList,
   httpIssueDetail,
   httpAdmin,
   httpAdminList,
-  httpIssueDeal
+  httpIssueDeal,
+  httpCollectData
 }

@@ -1,5 +1,7 @@
 {
   "pages": [
+    "views/like/index",
+    "views/about/index",
     "views/index/index",
     "views/signIn/index",
     "views/report/index",
@@ -16,6 +18,7 @@
     "pages/logs/logs",
     "views/my/index",
     "views/sch/index"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

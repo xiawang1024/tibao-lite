@@ -1,0 +1,10 @@
+<!--views/like/index.wxml-->
+<view class="page">
+  <block wx:for="{{listData}}" wx:key="id" wx:for-item="item">
+    <list-item item-data="{{item}}" bindtap="goToDetail" data-itemid="{{item.itemid}}"></list-item>
+  </block>
+
+  <view class="no-data-wrap">
+    <image class="no-data" src="../../icons/no-data.png" mode="aspectFill"></image>
+  </view>
+</view>

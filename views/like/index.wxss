@@ -1,0 +1,15 @@
+/* views/like/index.wxss */
+.page{
+  width: 100%;
+  padding:0 20rpx;
+  box-sizing: border-box;
+}
+
+.no-data-wrap{
+  text-align: center;
+}
+.no-data{
+  width: 350rpx;
+  height: 350rpx;
+  margin:120rpx auto;
+}
