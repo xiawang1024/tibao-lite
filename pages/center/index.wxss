@@ -5,6 +5,7 @@
 }
 
 .userinfo{
+  position: relative;
   display: flex;
   width: 100%;
   padding: 60rpx 30rpx;  
@@ -21,6 +22,13 @@
 .userinfo .nickname {
   padding-top: 30rpx;
   margin-left: 30rpx;
+}
+
+.userinfo .rd-name{
+  position: absolute;
+  left:210rpx;
+  bottom:80rpx;
+  color:#d93636;
 }
 
 .list-wrap{

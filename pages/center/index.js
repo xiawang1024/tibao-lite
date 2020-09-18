@@ -8,7 +8,8 @@ Page({
    */
   data: {
     isAdmin:false,
-    num:''
+    num:'',
+    name:""
   },
 
   /**
@@ -22,7 +23,8 @@ Page({
         if(res.admin) {
           this.setData({
             isAdmin:true,
-            num:res.num
+            num:res.num,
+            name:res.name
           })
         }
       })

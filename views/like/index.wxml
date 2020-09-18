@@ -4,7 +4,7 @@
     <list-item item-data="{{item}}" bindtap="goToDetail" data-itemid="{{item.itemid}}"></list-item>
   </block>
 
-  <view class="no-data-wrap">
+  <view class="no-data-wrap" wx:if="{{listData.length==0}}">
     <image class="no-data" src="../../icons/no-data.png" mode="aspectFill"></image>
   </view>
 </view>

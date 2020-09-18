@@ -5,4 +5,8 @@
     <text class="time">{{datetime}}</text>
   </view>
   <wxParse nodes="{{htmlString}}" />
+  <view class="collect-wrap">
+    <image bindtap="collectHandler" wx:if="{{!isCollect}}" class="icon icon-collect" src="../../icons/icon-collect.png"></image>
+    <image bindtap="collectHandler" wx:else class="icon icon-collected" src="../../icons/icon-collected.png"></image>
+  </view>
 </view>

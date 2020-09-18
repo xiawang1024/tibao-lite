@@ -174,11 +174,59 @@ const httpCollectData = (page) => {
   })
 }
 
+//收藏查询
+const httpCollectQuery = (itemid) => {
+  let token = wx.getStorageSync('token-wechat')
+  return new Promise((resolve,reject) => {
+    wx.request({
+      url: `${baseUrl}/user/favquery`,
+      method:"POST",
+      header: {
+        "Authorization": `Bearer ${token}`
+      },
+      data:{
+        itemid
+      },
+      success(res) {
+        resolve(res.data)
+      },
+      fail() {
+        reject()
+      }
+    })
+  })
+}
+// 收藏切换
+const httpCollect = (itemid) => {
+  let token = wx.getStorageSync('token-wechat')
+  return new Promise((resolve,reject) => {
+    wx.request({
+      url: `${baseUrl}/user/favorites`,
+      method:"POST",
+      header: {
+        "Authorization": `Bearer ${token}`
+      },
+      data:{
+        itemid
+      },
+      success(res) {
+        resolve(res.data)
+      },
+      fail() {
+        reject()
+      }
+
+    })
+  })
+}
+
 export {
   httpIssueList,
   httpIssueDetail,
   httpAdmin,
   httpAdminList,
   httpIssueDeal,
-  httpCollectData
+  httpCollectData,
+  httpCollectQuery,
+  httpCollect
 }

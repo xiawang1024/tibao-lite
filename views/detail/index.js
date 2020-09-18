@@ -1,5 +1,6 @@
 // views/detail/index.js
 import {httpNewsData} from "../../api/news"
+import {httpCollect,httpCollectQuery} from "../../api/user"
 Page({
 
   /**
@@ -8,7 +9,9 @@ Page({
   data: {
     htmlString:'',
     editor:"",
-    datetime:""
+    datetime:"",
+    isCollect:false,
+    itemid:""
   },
 
   /**
@@ -17,7 +20,19 @@ Page({
   onLoad: function (options) {
     console.log(options)
     let {itemid} = options
+    this.setData({
+      itemid
+    })
     this.getData(itemid||1)
+
+    httpCollectQuery(itemid).then(res => {
+      let {code,data} = res
+      if(code === 0) {
+        this.setData({
+          isCollect:data.saved
+        })
+      }
+    }) 
   },
 
   /**
@@ -80,6 +95,33 @@ Page({
           htmlString:content,
           datetime,
           editor
+        })
+      }
+    })
+  },
+  collectHandler(){
+    let itemid = this.data.itemid
+    httpCollect(itemid).then(res => {
+      let {code ,data} =res
+      if(code ===0){
+        this.setData({
+          isCollect:data.saved
+        })
+        if(data.saved) {
+          wx.showToast({
+            title: '收藏成功',
+            icon:"none"
+          })
+        }else {
+          wx.showToast({
+            title: '取消收藏',
+            icon:"none"
+          })
+        }
+      }else {
+        wx.showToast({
+          title: res.message,
+          icon:"none"
         })
       }
     })

@@ -1,14 +1,14 @@
 {
   "pages": [
+    "pages/center/index",
+    "views/index/index",
     "views/like/index",
     "views/about/index",
-    "views/index/index",
     "views/signIn/index",
     "views/report/index",
     "views/detail/index",
     "pages/index/index",
     "views/signDetail/index",
-    "pages/center/index",
     "pages/adminDetail/index",
     "pages/adminList/index",
     "pages/myList/index",
@@ -16,7 +16,6 @@
     "pages/editTel/index",
     "pages/detail/index",
     "pages/logs/logs",
-    "views/my/index",
     "views/sch/index"
     
   ],

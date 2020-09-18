@@ -94,11 +94,11 @@ Page({
     this.getData()
   },
   getData() {
-    let {kw,page} = this.data
+    let {kw,page,listData} = this.data
     httpNewsSch(kw,page).then(res => {
       let {code,data} = res
       if(code ===0) {
-        if(data.Search&&data.Search.length===0) {
+        if(!data.Search) {
           wx.showToast({
             title: '没有结果',
             icon:"none"
@@ -106,7 +106,7 @@ Page({
           return 
         }
         this.setData({
-          listData:data.Search
+          listData:listData.concat(data.Search)
         })
       }
     })
