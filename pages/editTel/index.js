@@ -8,7 +8,7 @@ Page({
   data: {
     isSend:false,
     timeAgo:'',
-    originMobile:wx.getStorageSync('mobile'),
+    originMobile:"",
     newMobile:'',
     code:""
   },
@@ -31,7 +31,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      this.setData({
+        originMobile:wx.getStorageSync('mobile')
+      })
   },
 
   /**
@@ -139,6 +141,9 @@ Page({
           wx.setStorage({
             data: code,
             key: 'code',
+          })
+          wx.navigateBack({
+            delta: 0,
           })
         }else {
           wx.showToast({

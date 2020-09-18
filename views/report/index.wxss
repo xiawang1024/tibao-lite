@@ -8,6 +8,10 @@
 
 .page .link{
   width: 100%;
-  height: 160rpx;
-  background: orange;
+  /* height: 160rpx; */
+  /* background: orange; */
+}
+
+.page .link .img {
+  width: 100%;
 }

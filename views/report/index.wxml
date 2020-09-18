@@ -1,4 +1,6 @@
 <!--views/report/index.wxml-->
 <view class="page">
-  <view class="link" bindtap="goToDetail">占位</view>
+  <view class="link" bindtap="goToDetail">
+    <image class="img" src="https://t9.baidu.com/it/u=86853839,3576305254&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg?sec=1601001662&t=5aa616cfee1d47628ac3918db47cf6cb"></image>
+  </view>
 </view>
