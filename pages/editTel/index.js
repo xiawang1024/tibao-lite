@@ -1,5 +1,5 @@
 // pages/editTel/index.js
-import {httpGetPhoneCode} from "../../api/form"
+import {httpGetPhoneCode,httpIsCode} from "../../api/form"
 Page({
 
   /**
@@ -9,7 +9,8 @@ Page({
     isSend:false,
     timeAgo:'',
     originMobile:wx.getStorageSync('mobile'),
-    newMobile:''
+    newMobile:'',
+    code:""
   },
 
   /**
@@ -123,7 +124,34 @@ Page({
       newMobile:e.detail.value
     })
   },
+  codeIptHandler(e) {
+    this.setData({
+      code:e.detail.value
+    })
+  },
   yesHandler() {
-    wx.setStorageSync('newMobile', this.data.newMobile)
+    let {code } = this.data
+    httpIsCode(code).then(res => {
+      let {code,data} = res
+      if(code === 0) {
+        if(data.same) {
+          wx.setStorageSync('newMobile', this.data.newMobile)
+          wx.setStorage({
+            data: code,
+            key: 'code',
+          })
+        }else {
+          wx.showToast({
+            title: '验证码错误',
+            icon:"none"
+          })
+        }
+      }else {
+        wx.showToast({
+          title: '参数错误',
+          icon:"none"
+        })
+      }
+    })
   }
 })

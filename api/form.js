@@ -29,7 +29,7 @@ const httpPublic = () => {
   })
 }
 
-const httpIssue = ({name,idcard,address,phone,mid,username,catid,content}) => {
+const httpIssue = ({name,idcard,address,phone,mid,username,catid,content,code}) => {
   let token = wx.getStorageSync('token-wechat')
   return new Promise((resolve,reject) => {
     wx.request({
@@ -72,8 +72,32 @@ const httpGetPhoneCode = (phone) => {
   })
 }
 
+//验证验证码
+const httpIsCode = (code) => {
+  let token = wx.getStorageSync('token-wechat')
+  return new Promise((resolve,reject) => {
+    wx.request({
+      url: `${baseUrl}/user/code`,
+      method:"POST",
+      header: {
+        "Authorization": `Bearer ${token}`
+      },
+      data:{
+        code
+      },
+      success(res) {
+        resolve(res.data)
+      },
+      fail(){
+        reject()
+      }
+    })
+  })
+}
+
 export {
   httpPublic,
   httpIssue,
-  httpGetPhoneCode
+  httpGetPhoneCode,
+  httpIsCode
 }

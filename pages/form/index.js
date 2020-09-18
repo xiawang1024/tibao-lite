@@ -193,9 +193,14 @@ Page({
     let username = userIdx === -1 ? '' : userArr[userIdx].username 
     let catid = eventArr[eventIdx]&& eventArr[eventIdx].catid
     console.log(mid)
-    httpIssue({name,idcard,address,phone,mid,username,catid,content}).then((res) => {
+
+    let code = wx.getStorageSync('code') || ''
+    httpIssue({name,idcard,address,phone,mid,username,catid,content,code}).then((res) => {
       wx.removeStorage({
         key: 'newMobile',
+      })
+      wx.removeStorage({
+        key: 'code',
       })
       if(res.data === 0) {
         wx.showModal({
@@ -204,6 +209,7 @@ Page({
         })
         return 
       }
+      
       wx.showToast({
         title: '提交成功',
         icon:'none',

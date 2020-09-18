@@ -13,7 +13,7 @@
   </view>
   <view class="code">
     <view class="label">验证码：</view>
-    <input class="value" placeholder="请输入验证码"></input>
+    <input class="value" value="{{code}}" bindinput="codeIptHandler" placeholder="请输入验证码"></input>
   </view>
 
   <view class="btn-group">
